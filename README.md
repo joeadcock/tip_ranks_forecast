@@ -1,13 +1,13 @@
 # TipRanksForecast
 
-TipRanksForecast queries TipRanks for a stock's price target and Wall Street analyst consensus.
+TipRanksForecast queries TipRanks for a stock's price target and Wall Street analyst consensus.  This is only intended only personal/hobby use, as it is probably not a stable solution longterm.  It is not advised to use this in a production or critical system.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'tip_ranks_forecast'
+gem 'tip_ranks_forecast', github: 'joeadcock/tip_ranks_forecast'
 ```
 
 And then execute:
@@ -16,11 +16,30 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install tip_ranks_forecast
+    $ gem install specific_install
+    $ gem specific_install https://github.com/joeadcock/tip_ranks_forecast.git
 
 ## Usage
+NOTE: all prices are in cents
 
-TODO: Write usage instructions here
+```
+symbol = 'TSLA'
+tipranks = TipRanksForecast::Stock.new(symbol)
+tipranks.price_target
+ => 74135
+tipranks.low_forecast
+ => 16000
+tipranks.high_forecast
+ => 120000
+tipranks.num_analysts
+ => 21
+tipranks.buy_ratings
+ => 10
+tipranks.hold_ratings
+ => 7
+tipranks.sell_ratings
+ => 4
+```
 
 ## Development
 
